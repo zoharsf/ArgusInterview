@@ -22,7 +22,7 @@
 * Deploy jar file to target machine.
 * Create config\application.properties in the same library as the jar file.
 * Add a new property to the application.properties file: "application.neighbor.ip=<other host>".
-* The property should store the ip address or hostname of the other service.
+* The property should store the ip address or hostname of the other machine running the service.
 * Run in command line (replace <PATH_TO_JAR> with the full path to the located jar filew from the previous bullet):
 ```
 java -jar <PATH_TO_JAR>
@@ -79,6 +79,16 @@ Cache-Control: no-cache
 * Upon receiving an HTTP POST request with a sync payload, the service will parse the received JSON message, check if the timestamp is newer than the one currently in the cache, and only if so, will it update the cache with the received payload.
 * Any subsequent HTTP GET requests received by either of the instances will be answered with the payload sent in the last HTTP POST request received.
 
+### Notes:
+* The service is currently run as an application and not a service 
+* The service has very rich logs which are configured to be printed to the console.
+* The logs include:
+ * Incoming messages.
+ * Outgoing messages.
+ * What stage the service is in.
+ * Loaded configurations.
+ * Errors
+
 ![Stage 3](stage3.png?raw=true "Stage 3")
 
 ### Future improvements:
@@ -88,3 +98,4 @@ Cache-Control: no-cache
 - [ ] Support syncing between multiple services.
 - [ ] Add auto update to connected clients when new payload has been sent to service.
 - [ ] Improve code efficiency.
+- [ ] Run as service instead of application.
