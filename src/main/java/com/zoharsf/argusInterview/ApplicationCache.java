@@ -5,20 +5,20 @@ import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 @Component
-class ApplicationCache {
-    private long timestamp;
-    @Getter
-    private String payload;
-
-    void updateCache(IncomingMessage incomingMessage) {
-        if (incomingMessage.getTimestamp() < timestamp) {
-            this.timestamp = System.currentTimeMillis();
-            this.payload = incomingMessage.getPayload();
-        }
-    }
-
-    void updateCache(String payload) {
-        this.timestamp = System.currentTimeMillis();
-        this.payload = payload;
-    }
+public class ApplicationCache {
+	private long timestamp;
+	@Getter
+	private String payload;
+	
+	public void updateCache(IncomingMessage incomingMessage) {
+		if (incomingMessage.getTimestamp() > timestamp) {
+			this.timestamp = System.currentTimeMillis();
+			this.payload = incomingMessage.getPayload();
+		}
+	}
+	
+	public void updateCache(String payload) {
+		this.timestamp = System.currentTimeMillis();
+		this.payload = payload;
+	}
 }
