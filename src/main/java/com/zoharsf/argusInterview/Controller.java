@@ -55,7 +55,6 @@ public class Controller {
 	
 	//Parse incoming message from neighboring application
 	private IncomingMessage parse(String payload) {
-		//TODO this isn't working - parsing is failing
 		IncomingMessage incomingMessage = null;
 		try {
 			incomingMessage = gson.fromJson(payload, IncomingMessage.class);

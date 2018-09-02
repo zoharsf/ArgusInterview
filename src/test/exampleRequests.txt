@@ -1,9 +1,21 @@
 Client POST:
-curl -X POST -H "Content-Type:application/json" -d "{\"ABC\": \"123\"}" "http://127.0.0.1:8080/api/resource"
-curl -X POST -H "Content-Type:application/json" -d "{\"Do Re Mi\": \"ABC 123\"}" "http://127.0.0.1:8080/api/resource"
+    POST /api/resource HTTP/1.1
+    Host: <host>:8080
+    Content-Type: application/json
+    Cache-Control: no-cache
+
+    {ABCD: 1234}
+
 
 Client GET:
-curl -X GET http://127.0.0.1:8080/api/resource
+    GET /api/resource HTTP/1.1
+    Host: <host>:8080
+    Cache-Control: no-cache
 
-Server POST:
-curl -X POST -H "Content-Type:application/json" -d "{\"timestamp\": \"123123123\", \"payload\": \"Beat it\"}" "http://127.0.0.1:8080/api/sync"
+Server POST (Sync message):
+    POST /api/sync HTTP/1.1
+    Host: <host>:8080
+    Content-Type: application/json
+    Cache-Control: no-cache
+
+    {"timestamp":1535913184442,"payload":"{ABC: 123}"}
