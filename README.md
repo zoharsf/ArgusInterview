@@ -79,6 +79,8 @@ Cache-Control: no-cache
 * Upon receiving an HTTP POST request with a sync payload, the service will parse the received JSON message, check if the timestamp is newer than the one currently in the cache, and only if so, will it update the cache with the received payload.
 * Any subsequent HTTP GET requests received by either of the instances will be answered with the payload sent in the last HTTP POST request received.
 
+![Stage 3](stage3.png?raw=true "Stage 3")
+
 ### Notes:
 * The service is currently run as an application and not a service 
 * The service has very rich logs which are configured to be printed to the console.
@@ -88,9 +90,7 @@ Cache-Control: no-cache
  * What stage the service is in.
  * Loaded configurations.
  * Errors
-
-![Stage 3](stage3.png?raw=true "Stage 3")
-
+ 
 ### Future improvements:
 - [ ] Add security features to service.
 - [ ] Dockerize service.
