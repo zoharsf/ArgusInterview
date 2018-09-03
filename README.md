@@ -82,7 +82,7 @@ Cache-Control: no-cache
 ![Stage 3](stage3.png?raw=true "Stage 3")
 
 ### Notes:
-* The service is currently run as an application and not a service 
+* The service currently runs as an application and not a service 
 * The service has very rich logs which are configured to be printed to the console.
 * The logs include:
  * Incoming messages.
